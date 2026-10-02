@@ -1,5 +1,5 @@
 {
-    "name": "@glideapps/glide-data-grid",
+    "name": "@Terralayr/glide-data-grid",
     "version": "6.0.4-alpha25",
     "description": "React data grid for beautifully displaying and editing large amounts of data with amazing performance.",
     "sideEffects": [
@@ -35,7 +35,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/glideapps/glide-data-grid.git",
+        "url": "git+https://github.com/Terralayr/glide-data-grid.git",
         "directory": "packages/core"
     },
     "keywords": [
@@ -53,9 +53,9 @@
     "author": "Glide",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/glideapps/glide-data-grid/issues"
+        "url": "https://github.com/Terralayr/glide-data-grid/issues"
     },
-    "homepage": "https://grid.glideapps.com",
+    "homepage": "https://github.com/Terralayr/glide-data-grid/tree/main/packages/core",
     "dependencies": {
         "@linaria/react": "^6.3.0",
         "canvas-hypertxt": "^1.0.3",
@@ -77,5 +77,11 @@
         "react-resize-detector": "^12.1.0",
         "tsc-esm-fix": "^3.1.2",
         "typedoc": "^0.28.5"
-    }
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "files": [
+        "dist"
+    ]
 }
