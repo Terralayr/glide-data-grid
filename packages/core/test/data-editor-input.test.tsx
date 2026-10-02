@@ -14,6 +14,13 @@ import { CompactSelection } from "../src/internal/data-grid/data-grid-types.js";
 import { vi, expect, describe, test, beforeEach, afterEach } from "vitest";
 import { standardBeforeEach } from "./test-utils.js";
 
+vi.mock("../src/common/resize-detector", () => {
+    return {
+        useResizeDetector: () => ({ ref: undefined, width: 1000, height: 1000 }),
+    };
+});
+
+
 const makeCell = (cell: Item): GridCell => {
     const [col, row] = cell;
     switch (col) {
@@ -161,10 +168,10 @@ const basicProps: DataEditorProps = {
 function prep(resetTimers: boolean = true) {
     const scroller = document.getElementsByClassName("dvn-scroller").item(0);
     if (scroller !== null) {
-        vi.spyOn(scroller, "clientWidth", "get").mockImplementation(() => 1000);
-        vi.spyOn(scroller, "offsetWidth" as any, "get").mockImplementation(() => 1000);
-        vi.spyOn(scroller, "clientHeight", "get").mockImplementation(() => 1000);
-        vi.spyOn(scroller, "offsetHeight" as any, "get").mockImplementation(() => 1000);
+        vi.spyOn(scroller, "clientWidth", "get").mockReturnValue(1000);
+        vi.spyOn(scroller, "offsetWidth" as any, "get").mockReturnValue(1000);
+        vi.spyOn(scroller, "clientHeight", "get").mockReturnValue(1000);
+        vi.spyOn(scroller, "offsetHeight" as any, "get").mockReturnValue(1000);
     }
 
     act(() => {
@@ -217,11 +224,6 @@ const EventedDataEditor = React.forwardRef<DataEditorRef, DataEditorProps>((p, r
 });
 
 describe("data-editor-input", () => {
-    vi.mock("../src/common/resize-detector", () => {
-        return {
-            useResizeDetector: () => ({ ref: undefined, width: 1000, height: 1000 }),
-        };
-    });
 
     beforeEach(() => {
         standardBeforeEach();
