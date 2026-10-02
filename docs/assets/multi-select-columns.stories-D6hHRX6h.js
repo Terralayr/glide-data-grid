@@ -1,0 +1,7 @@
+import{i as e}from"./rolldown-runtime-Dd_uD5pT.js";import{r as t}from"./iframe-IUyyCR7M.js";import{n}from"./story-utils-cF-66lM2.js";import{t as r}from"./data-editor-all-C3Wov0HC.js";import{a as i,d as a,i as o,l as s,n as c,o as l,s as u}from"./utils-CIrhwOhG.js";var d=e(t(),1),f={title:`Glide-Data-Grid/DataEditor Demos`,decorators:[e=>d.createElement(n,null,d.createElement(c,{title:`Multi select columns`,description:d.createElement(d.Fragment,null,d.createElement(o,null,`You can select multiple columns by using the `,d.createElement(u,null,`selectedColumns`),` and`,` `,d.createElement(u,null,`onSelectedColumnsChange`),` props`),d.createElement(l,null,`Here you can multi select columns by using `,d.createElement(i,null,`Ctrl`),` (on Windows) or`,` `,d.createElement(i,null,`⌘`),` (on Mac)`))},d.createElement(e,null)))]},p=()=>{let{cols:e,getCellContent:t}=a(100);return d.createElement(r,{...s,getCellContent:t,rowMarkers:`both`,columns:e,rows:1e5})};p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`() => {
+  const {
+    cols,
+    getCellContent
+  } = useMockDataGenerator(100);
+  return <DataEditor {...defaultProps} getCellContent={getCellContent} rowMarkers="both" columns={cols} rows={100_000} />;
+}`,...p.parameters?.docs?.source}}};var m=[`MultiSelectColumns`];export{p as MultiSelectColumns,m as __namedExportsOrder,f as default};

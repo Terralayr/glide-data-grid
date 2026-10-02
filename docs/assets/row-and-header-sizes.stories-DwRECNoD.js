@@ -1,0 +1,7 @@
+import{i as e}from"./rolldown-runtime-Dd_uD5pT.js";import{r as t}from"./iframe-IUyyCR7M.js";import{n}from"./story-utils-cF-66lM2.js";import{t as r}from"./data-editor-all-C3Wov0HC.js";import{d as i,i as a,l as o,n as s,o as c,s as l}from"./utils-CIrhwOhG.js";var u=e(t(),1),d={title:`Glide-Data-Grid/DataEditor Demos`,decorators:[e=>u.createElement(n,null,u.createElement(s,{title:`Row and Header sizes`,description:u.createElement(u.Fragment,null,u.createElement(a,null,`The row size can be controlled with `,u.createElement(l,null,`rowHeight`),` and the header size with `,u.createElement(l,null,`headerHeight`),`.`),u.createElement(c,null,`Use the story's controls to resize them`))},u.createElement(e,null)))]},f=e=>{let{cols:t,getCellContent:n}=i(6);return u.createElement(r,{...o,rowHeight:e.rowHeight,headerHeight:e.headerHeight,rowMarkers:`number`,getCellContent:n,columns:t,rows:1e3})};f.args={rowHeight:34,headerHeight:34},f.argTypes={rowHeight:{control:{type:`range`,min:20,max:200}},headerHeight:{control:{type:`range`,min:20,max:200}}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`p => {
+  const {
+    cols,
+    getCellContent
+  } = useMockDataGenerator(6);
+  return <DataEditor {...defaultProps} rowHeight={p.rowHeight} headerHeight={p.headerHeight} rowMarkers={"number"} getCellContent={getCellContent} columns={cols} rows={1000} />;
+}`,...f.parameters?.docs?.source}}};var p=[`RowAndHeaderSizes`];export{f as RowAndHeaderSizes,p as __namedExportsOrder,d as default};

@@ -1,0 +1,7 @@
+import{i as e}from"./rolldown-runtime-Dd_uD5pT.js";import{r as t}from"./iframe-IUyyCR7M.js";import{n}from"./story-utils-cF-66lM2.js";import{t as r}from"./data-editor-all-C3Wov0HC.js";import{d as i,i as a,l as o,n as s,s as c}from"./utils-CIrhwOhG.js";var l=e(t(),1),u={title:`Glide-Data-Grid/DataEditor Demos`,decorators:[e=>l.createElement(n,null,l.createElement(s,{title:`Smooth scrolling`,description:l.createElement(a,null,`You can enable smooth scrolling with the `,l.createElement(c,null,`smoothScrollX`),` and`,` `,l.createElement(c,null,`smoothScrollY`),` props. Disabling smooth scrolling can dramatically increase performance and improve visual stability during rapid scrolling.`)},l.createElement(e,null)))]},d=e=>{let{cols:t,getCellContent:n}=i(30);return l.createElement(r,{...o,smoothScrollX:e.smoothScrollX,smoothScrollY:e.smoothScrollY,getCellContent:n,columns:t,rows:1e4})};d.args={smoothScrollX:!1,smoothScrollY:!1},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`p => {
+  const {
+    cols,
+    getCellContent
+  } = useMockDataGenerator(30);
+  return <DataEditor {...defaultProps} smoothScrollX={p.smoothScrollX} smoothScrollY={p.smoothScrollY} getCellContent={getCellContent} columns={cols} rows={10_000} />;
+}`,...d.parameters?.docs?.source}}};var f=[`SmoothScrollingGrid`];export{d as SmoothScrollingGrid,f as __namedExportsOrder,u as default};

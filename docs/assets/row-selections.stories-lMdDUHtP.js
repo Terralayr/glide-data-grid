@@ -1,0 +1,10 @@
+import{i as e}from"./rolldown-runtime-Dd_uD5pT.js";import{r as t}from"./iframe-IUyyCR7M.js";import{n}from"./story-utils-cF-66lM2.js";import{t as r}from"./data-editor-all-C3Wov0HC.js";import{d as i,i as a,l as o,n as s,s as c}from"./utils-CIrhwOhG.js";var l=e(t(),1),u={title:`Glide-Data-Grid/DataEditor Demos`,decorators:[e=>l.createElement(n,null,l.createElement(s,{title:`Row selections`,description:l.createElement(a,null,`You can enable row selections by setting `,l.createElement(c,null,`rowSelect`),` prop to`,` `,l.createElement(c,null,`multi`),` for multi-selection or `,l.createElement(c,null,`single`),` for single-selection. The row marker behavior and appearance can be controlled via the`,` `,l.createElement(c,null,`rowMarkers`),` prop.`)},l.createElement(e,null)))]},d=e=>{let{cols:t,getCellContent:n}=i(30);return l.createElement(r,{...o,rowSelect:e.rowSelect,rowSelectionMode:e.rowSelectionMode,getCellContent:n,rowMarkers:{kind:e.rowMarkersKind,checkboxStyle:e.rowMarkersCheckboxStyle},columns:t,rows:400})};d.args={rowSelect:`single`,rowSelectionMode:`auto`,rowMarkersKind:`checkbox-visible`,rowMarkersCheckboxStyle:`circle`},d.argTypes={rowSelect:{control:{type:`select`},options:[`none`,`single`,`multi`]},rowSelectionMode:{control:{type:`select`},options:[`auto`,`multi`]},rowMarkersKind:{control:{type:`select`},options:[`both`,`checkbox`,`number`,`none`,`clickable-number`,`checkbox-visible`]},rowMarkersCheckboxStyle:{control:{type:`select`},options:[`square`,`circle`]}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`p => {
+  const {
+    cols,
+    getCellContent
+  } = useMockDataGenerator(30);
+  return <DataEditor {...defaultProps} rowSelect={p.rowSelect} rowSelectionMode={p.rowSelectionMode} getCellContent={getCellContent} rowMarkers={{
+    kind: p.rowMarkersKind,
+    checkboxStyle: p.rowMarkersCheckboxStyle
+  }} columns={cols} rows={400} />;
+}`,...d.parameters?.docs?.source}}};var f=[`RowSelections`];export{d as RowSelections,f as __namedExportsOrder,u as default};

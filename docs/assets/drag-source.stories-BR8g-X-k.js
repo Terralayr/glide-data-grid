@@ -1,0 +1,10 @@
+import{i as e}from"./rolldown-runtime-Dd_uD5pT.js";import{r as t}from"./iframe-IUyyCR7M.js";import{n}from"./story-utils-cF-66lM2.js";import{t as r}from"./data-editor-all-C3Wov0HC.js";import{d as i,i as a,l as o,n as s,s as c}from"./utils-CIrhwOhG.js";var l=e(t(),1),u={title:`Glide-Data-Grid/DataEditor Demos`,decorators:[e=>l.createElement(n,null,l.createElement(s,{title:`Drag source`,description:l.createElement(l.Fragment,null,l.createElement(a,null,`Setting the `,l.createElement(c,null,`isDraggable`),` prop can allow for more granular control over what is draggable in the grid via HTML drag and drop.`))},l.createElement(e,null)))]},d=e=>{let{cols:t,getCellContent:n,onColumnResize:a}=i(200);return l.createElement(r,{...o,getCellContent:n,columns:t,rowMarkers:`both`,rows:5e3,onRowMoved:(e,t)=>window.alert(`Moved row ${e} to ${t}`),onColumnMoved:(e,t)=>window.alert(`Moved col ${e} to ${t}`),onColumnResize:a,isDraggable:e.isDraggable,onDragStart:e=>{e.setData(`text/plain`,`Drag data here!`)}})};d.argTypes={isDraggable:{control:{type:`select`},options:[!0,!1,`cell`,`header`]}},d.args={isDraggable:!1},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`p => {
+  const {
+    cols,
+    getCellContent,
+    onColumnResize
+  } = useMockDataGenerator(200);
+  return <DataEditor {...defaultProps} getCellContent={getCellContent} columns={cols} rowMarkers="both" rows={5000} onRowMoved={(s, e) => window.alert(\`Moved row \${s} to \${e}\`)} onColumnMoved={(s, e) => window.alert(\`Moved col \${s} to \${e}\`)} onColumnResize={onColumnResize} isDraggable={p.isDraggable} onDragStart={e => {
+    e.setData("text/plain", "Drag data here!");
+  }} />;
+}`,...d.parameters?.docs?.source}}};var f=[`DragSource`];export{d as DragSource,f as __namedExportsOrder,u as default};
