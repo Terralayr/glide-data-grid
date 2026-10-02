@@ -246,7 +246,7 @@ export const UseDataSource: React.VFC = () => {
 
             const key = `${col},${row}`;
             if (cache.current[key] === undefined) {
-                cache.current[key] = faker.name.firstName() + " " + faker.name.lastName();
+                cache.current[key] = faker.person.firstName() + " " + faker.person.lastName();
             }
             const d = cache.current[key];
 

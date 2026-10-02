@@ -218,10 +218,10 @@ export function getCellCenterPositionForDefaultGrid(cell: Item): [number, number
 export function prep(resetTimers: boolean = true) {
     const scroller = document.getElementsByClassName("dvn-scroller").item(0);
     if (scroller !== null) {
-        vi.spyOn(scroller, "clientWidth", "get").mockImplementation(() => 1000);
-        vi.spyOn(scroller, "clientHeight", "get").mockImplementation(() => 1000);
-        vi.spyOn(scroller, "offsetWidth" as any, "get").mockImplementation(() => 1000);
-        vi.spyOn(scroller, "offsetHeight" as any, "get").mockImplementation(() => 1000);
+        vi.spyOn(scroller, "clientWidth", "get").mockReturnValue(1000);
+        vi.spyOn(scroller, "clientHeight", "get").mockReturnValue(1000);
+        vi.spyOn(scroller, "offsetWidth" as any, "get").mockReturnValue(1000);
+        vi.spyOn(scroller, "offsetHeight" as any, "get").mockReturnValue(1000);
     }
 
     act(() => {
