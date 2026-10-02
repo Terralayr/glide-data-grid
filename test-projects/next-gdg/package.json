@@ -9,7 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@glideapps/glide-data-grid": "^3.4.1",
+        "@Terralayr/glide-data-grid": "file:../../packages/core",
         "canvas-hypertxt": "^1.0.3",
         "lodash": "^4.18.1",
         "marked": "^16.1.2",

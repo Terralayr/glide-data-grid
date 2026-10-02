@@ -12,7 +12,7 @@ import {
     isTextEditableGridCell,
     type Item,
     type Rectangle,
-} from "@glideapps/glide-data-grid";
+} from "@Terralayr/glide-data-grid";
 
 import { faker } from "@faker-js/faker";
 

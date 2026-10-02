@@ -12,10 +12,10 @@
   <img alt="Glide Data Grid with sample data" src="https://raw.githubusercontent.com/glideapps/glide-data-grid/master/media/data-grid.png">
 </picture>
 
-[![Version](https://img.shields.io/npm/v/@glideapps/glide-data-grid?color=blue&label=latest&style=for-the-badge)](https://github.com/glideapps/glide-data-grid/releases)
+[![Version](https://img.shields.io/npm/v/@Terralayr/glide-data-grid?color=blue&label=latest&style=for-the-badge)](https://github.com/glideapps/glide-data-grid/releases)
 [![React 16-19](https://img.shields.io/badge/React-16--19-00ADD8?style=for-the-badge&logo=react)](https://reactjs.org)
 [![Code Coverage](https://img.shields.io/coverallsCoverage/github/glideapps/glide-data-grid?color=457aba&label=Cover&style=for-the-badge)](https://coveralls.io/github/glideapps/glide-data-grid)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@glideapps/glide-data-grid?color=success&label=bundle&style=for-the-badge)](https://bundlephobia.com/package/@glideapps/glide-data-grid)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@Terralayr/glide-data-grid?color=success&label=bundle&style=for-the-badge)](https://bundlephobia.com/package/@Terralayr/glide-data-grid)
 [![License](https://img.shields.io/github/license/glideapps/glide-data-grid?color=red&style=for-the-badge)](https://github.com/glideapps/glide-data-grid/blob/main/LICENSE)
 [![Made By Glide](https://img.shields.io/badge/❤_Made_by-Glide-11CCE5?style=for-the-badge&logo=none)](https://www.glideapps.com/jobs)
 
@@ -40,10 +40,17 @@ You can also visit our [main site](https://grid.glideapps.com).
 
 # ⚡ Quick Start
 
+Packages are published to **GitHub Packages** under the `@Terralayr` scope. Add this to your project `.npmrc` (and ensure `NODE_AUTH_TOKEN` / a GitHub PAT with `read:packages` is available):
+
+```ini
+@Terralayr:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+```
+
 First make sure you are using React 16 or greater (including React 17, 18, and 19). Then install the data grid:
 
 ```shell
-npm i @glideapps/glide-data-grid
+npm i @Terralayr/glide-data-grid
 ```
 
 You may also need to install the peer dependencies if you don't have them already:
@@ -61,7 +68,7 @@ Create a new `DataEditor` wherever you need to display lots and lots of data
 Don't forget to import mandatory CSS
 
 ```ts
-import "@glideapps/glide-data-grid/dist/index.css";
+import "@Terralayr/glide-data-grid/dist/index.css";
 ```
 
 Making your columns is easy
@@ -184,7 +191,7 @@ grid.tsx
 
 ```tsx
 import React from "react";
-import DataEditor from "@glideapps/glide-data-grid";
+import DataEditor from "@Terralayr/glide-data-grid";
 
 export default function Grid() {
     return <DataEditor {...args} />;

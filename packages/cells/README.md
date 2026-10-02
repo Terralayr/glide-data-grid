@@ -4,9 +4,9 @@
 </h1>
 <p align="center">Additional cells and features for Glide Data Grid</p>
 
-[![Version](https://img.shields.io/npm/v/@glideapps/glide-data-grid-cells?color=blue&label=latest&style=for-the-badge)](https://github.com/glideapps/glide-data-grid/releases)
+[![Version](https://img.shields.io/npm/v/@Terralayr/glide-data-grid-cells?color=blue&label=latest&style=for-the-badge)](https://github.com/glideapps/glide-data-grid/releases)
 [![React 16+](https://img.shields.io/badge/React-16+-00ADD8?style=for-the-badge&logo=react)](https://reactjs.org)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@glideapps/glide-data-grid-cells?color=success&label=bundle&style=for-the-badge)](https://bundlephobia.com/package/@glideapps/glide-data-grid-cells)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@Terralayr/glide-data-grid-cells?color=success&label=bundle&style=for-the-badge)](https://bundlephobia.com/package/@Terralayr/glide-data-grid-cells)
 [![License](https://img.shields.io/github/license/glideapps/glide-data-grid?color=red&style=for-the-badge)](https://github.com/glideapps/glide-data-grid/blob/main/LICENSE)
 [![Made By Glide](https://img.shields.io/badge/❤_Made_by-Glide-11CCE5?style=for-the-badge&logo=none)](https://www.glideapps.com/jobs)
 
@@ -27,7 +27,7 @@ Current cells
 Step 1: Import the cell renderers you want to use and pass them to the grid.
 
 ```tsx
-import { allCells } from "@glideapps/glide-data-grid-cells";
+import { allCells } from "@Terralayr/glide-data-grid-cells";
 
 const Grid = () => {
     return <DataEditor customRenderers={allCells} {...rest} />;
@@ -37,7 +37,7 @@ const Grid = () => {
 Step 2: Use the cells in your `getCellContent` callback
 
 ```ts
-import type { StarCell } from "@glideapps/glide-data-grid-cells";
+import type { StarCell } from "@Terralayr/glide-data-grid-cells";
 
 const getCellContent = React.useCallback(() => {
     const starCell: StarCell = {
