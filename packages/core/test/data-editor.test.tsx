@@ -31,12 +31,13 @@ import {
     standardAfterEach,
 } from "./test-utils.js";
 
+vi.mock("../src/common/resize-detector", () => {
+    return {
+        useResizeDetector: () => ({ ref: undefined, width: 1000, height: 1000 }),
+    };
+});
+
 describe("data-editor", () => {
-    vi.mock("../src/common/resize-detector", () => {
-        return {
-            useResizeDetector: () => ({ ref: undefined, width: 1000, height: 1000 }),
-        };
-    });
 
     beforeEach(() => {
         standardBeforeEach();
@@ -1869,8 +1870,8 @@ describe("data-editor", () => {
             vi.runAllTimers();
         });
 
-        vi.spyOn(scroller, "scrollWidth", "get").mockImplementation(() => 1000);
-        vi.spyOn(scroller, "scrollHeight", "get").mockImplementation(() => 1000);
+        vi.spyOn(scroller, "scrollWidth", "get").mockReturnValue(1000);
+        vi.spyOn(scroller, "scrollHeight", "get").mockReturnValue(1000);
 
         const bounds = ref.current?.getBounds();
         expect(bounds).toEqual({
@@ -2344,7 +2345,7 @@ describe("data-editor", () => {
         prep(false);
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
         sendClick(canvas, {
             clientX: 300, // Col B
             clientY: 36 + 32 * 2 + 16, // Row 2 (0 indexed)
@@ -2415,7 +2416,7 @@ describe("data-editor", () => {
         prep(false);
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
         sendClick(canvas, {
             clientX: 300, // Col B
             clientY: 36 + 32 * 2 + 16, // Row 2 (0 indexed)
@@ -2452,7 +2453,7 @@ describe("data-editor", () => {
         prep(false);
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
         sendClick(canvas, {
             clientX: 300, // Col B
             clientY: 36 + 32 * 2 + 16, // Row 2 (0 indexed)
@@ -2522,7 +2523,7 @@ describe("data-editor", () => {
         prep(false);
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
         sendClick(canvas, {
             clientX: 300, // Col B
             clientY: 36 + 32 * 2 + 16, // Row 2 (0 indexed)
@@ -2577,7 +2578,7 @@ describe("data-editor", () => {
         prep(false);
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
 
         // mouse down col b row 2
         fireEvent.pointerDown(canvas, {
@@ -2640,7 +2641,7 @@ describe("data-editor", () => {
         prep(false);
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
 
         // mouse down col b row 2
         fireEvent.pointerDown(canvas, {
@@ -2701,7 +2702,7 @@ describe("data-editor", () => {
         prep(false);
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
         sendClick(canvas, {
             clientX: 300, // Col B
             clientY: 36 + 32 * 2 + 16, // Row 2 (0 indexed)
@@ -2738,7 +2739,7 @@ describe("data-editor", () => {
         prep(false);
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
         sendClick(canvas, {
             clientX: 300, // Col B
             clientY: 36 + 32 * 2 + 16, // Row 2 (0 indexed)
@@ -2816,7 +2817,7 @@ describe("data-editor", () => {
         prep();
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
 
         fireEvent.copy(window);
         await act(() => new Promise(r => window.setTimeout(r, 10)));
@@ -2843,7 +2844,7 @@ describe("data-editor", () => {
         prep();
 
         const canvas = screen.getByTestId("data-grid-canvas");
-        vi.spyOn(document, "activeElement", "get").mockImplementation(() => canvas);
+        vi.spyOn(document, "activeElement", "get").mockReturnValue(canvas);
 
         fireEvent.copy(window);
         await act(() => new Promise(r => window.setTimeout(r, 10)));
@@ -2887,24 +2888,20 @@ describe("data-editor", () => {
         await act(() => new Promise(r => window.setTimeout(r, 100)));
 
         if (scroller !== null) {
-            vi.spyOn(scroller, "scrollWidth", "get").mockImplementation(() =>
-                basicProps.columns.map(c => (isSizedGridColumn(c) ? c.width : 150)).reduce((pv, cv) => pv + cv, 0)
-            );
-            vi.spyOn(scroller, "scrollHeight", "get").mockImplementation(() => 1000 * 32 + 36);
-            vi.spyOn(scroller, "scrollLeft", "get").mockImplementation(() => 0);
-            vi.spyOn(scroller, "scrollTop", "get").mockImplementation(() => 55);
+            vi.spyOn(scroller, "scrollWidth", "get").mockReturnValue(basicProps.columns.map(c => (isSizedGridColumn(c) ? c.width : 150)).reduce((pv, cv) => pv + cv, 0));
+            vi.spyOn(scroller, "scrollHeight", "get").mockReturnValue(1000 * 32 + 36);
+            vi.spyOn(scroller, "scrollLeft", "get").mockReturnValue(0);
+            vi.spyOn(scroller, "scrollTop", "get").mockReturnValue(55);
             fireEvent.scroll(scroller);
         }
 
         await act(() => new Promise(r => window.setTimeout(r, 100)));
 
         if (scroller !== null) {
-            vi.spyOn(scroller, "scrollWidth", "get").mockImplementation(() =>
-                basicProps.columns.map(c => (isSizedGridColumn(c) ? c.width : 150)).reduce((pv, cv) => pv + cv, 0)
-            );
-            vi.spyOn(scroller, "scrollHeight", "get").mockImplementation(() => 1000 * 32 + 36);
-            vi.spyOn(scroller, "scrollLeft", "get").mockImplementation(() => 0);
-            vi.spyOn(scroller, "scrollTop", "get").mockImplementation(() => 0);
+            vi.spyOn(scroller, "scrollWidth", "get").mockReturnValue(basicProps.columns.map(c => (isSizedGridColumn(c) ? c.width : 150)).reduce((pv, cv) => pv + cv, 0));
+            vi.spyOn(scroller, "scrollHeight", "get").mockReturnValue(1000 * 32 + 36);
+            vi.spyOn(scroller, "scrollLeft", "get").mockReturnValue(0);
+            vi.spyOn(scroller, "scrollTop", "get").mockReturnValue(0);
             fireEvent.scroll(scroller);
         }
 
@@ -2945,24 +2942,20 @@ describe("data-editor", () => {
         await act(() => new Promise(r => window.setTimeout(r, 100)));
 
         if (scroller !== null) {
-            vi.spyOn(scroller, "scrollWidth", "get").mockImplementation(() =>
-                basicProps.columns.map(c => (isSizedGridColumn(c) ? c.width : 150)).reduce((pv, cv) => pv + cv, 0)
-            );
-            vi.spyOn(scroller, "scrollHeight", "get").mockImplementation(() => 1000 * 32 + 36);
-            vi.spyOn(scroller, "scrollLeft", "get").mockImplementation(() => 55);
-            vi.spyOn(scroller, "scrollTop", "get").mockImplementation(() => 0);
+            vi.spyOn(scroller, "scrollWidth", "get").mockReturnValue(basicProps.columns.map(c => (isSizedGridColumn(c) ? c.width : 150)).reduce((pv, cv) => pv + cv, 0));
+            vi.spyOn(scroller, "scrollHeight", "get").mockReturnValue(1000 * 32 + 36);
+            vi.spyOn(scroller, "scrollLeft", "get").mockReturnValue(55);
+            vi.spyOn(scroller, "scrollTop", "get").mockReturnValue(0);
             fireEvent.scroll(scroller);
         }
 
         await act(() => new Promise(r => window.setTimeout(r, 100)));
 
         if (scroller !== null) {
-            vi.spyOn(scroller, "scrollWidth", "get").mockImplementation(() =>
-                basicProps.columns.map(c => (isSizedGridColumn(c) ? c.width : 150)).reduce((pv, cv) => pv + cv, 0)
-            );
-            vi.spyOn(scroller, "scrollHeight", "get").mockImplementation(() => 1000 * 32 + 36);
-            vi.spyOn(scroller, "scrollLeft", "get").mockImplementation(() => 0);
-            vi.spyOn(scroller, "scrollTop", "get").mockImplementation(() => 0);
+            vi.spyOn(scroller, "scrollWidth", "get").mockReturnValue(basicProps.columns.map(c => (isSizedGridColumn(c) ? c.width : 150)).reduce((pv, cv) => pv + cv, 0));
+            vi.spyOn(scroller, "scrollHeight", "get").mockReturnValue(1000 * 32 + 36);
+            vi.spyOn(scroller, "scrollLeft", "get").mockReturnValue(0);
+            vi.spyOn(scroller, "scrollTop", "get").mockReturnValue(0);
             fireEvent.scroll(scroller);
         }
 
