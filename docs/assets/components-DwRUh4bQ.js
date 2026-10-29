@@ -1,1 +1,0 @@
-import{F as e}from"./DocsRenderer-PQXLIZUC-hAVsa0cV.js";export{e as createCopyToClipboardFunction};

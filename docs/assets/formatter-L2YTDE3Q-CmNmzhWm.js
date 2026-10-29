@@ -1,0 +1,1 @@
+import{D as e,d as t,j as n}from"./iframe-aCheeF-T.js";var r=(0,n(t(),1).default)(2)(async(t,n)=>t===!1?n:e(n));export{r as formatter};

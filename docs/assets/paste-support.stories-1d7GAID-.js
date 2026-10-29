@@ -1,0 +1,8 @@
+import{i as e}from"./rolldown-runtime-Dd_uD5pT.js";import{t}from"./iframe-aCheeF-T.js";import{n}from"./story-utils-BJ7T5CcP.js";import{t as r}from"./data-editor-all-BH9SA6ze.js";import{d as i,i as a,l as o,n as s,o as c,s as l}from"./utils-B_GBe0-M.js";var u=e(t(),1),d={title:`Glide-Data-Grid/DataEditor Demos`,decorators:[e=>u.createElement(n,null,u.createElement(s,{title:`Paste support`,description:u.createElement(u.Fragment,null,u.createElement(a,null,`The data grid can handle paste automatically by returning true from`,` `,u.createElement(l,null,`onPaste`),`. You can also return false and handle paste yourself. If paste is undefined the DataEditor will do its best to paste to the current cell.`),u.createElement(c,null,`Paste supports the copy format of Google Sheets and Excel. Below is an example of data copied from excel with some escaped text.`),u.createElement(`textarea`,{value:`Sunday	Dogs	https://google.com
+Monday	Cats	https://google.com
+Tuesday	Turtles	https://google.com
+Wednesday	Bears	https://google.com
+Thursday	"L  ions"	https://google.com
+Friday	Pigs	https://google.com
+Saturday	"Turkeys and some ""quotes"" and
+a new line char ""more quotes"" plus a tab  ."	https://google.com`,style:{width:`100%`,marginBottom:20,borderRadius:9,minHeight:200,padding:10}}))},u.createElement(e,null)))]},f=()=>{let{cols:e,getCellContent:t,onColumnResize:n,setCellValue:a}=i(50,!1);return u.createElement(r,{...o,getCellContent:t,rowMarkers:`both`,columns:e,onCellEdited:a,onColumnResize:n,onPaste:!0,rows:400})},p=[`PasteSupport`];export{f as PasteSupport,p as __namedExportsOrder,d as default};
